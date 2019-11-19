@@ -603,6 +603,10 @@ endif
 
 include Makefile.common
 
+ifneq (,$(findstring msvc2003,$(platform)))
+INCFLAGS += -I$(LIBRETRO_COMM_DIR)/include/compat/msvc
+endif
+
 DEFINES := $(PLATFORM_DEFINES) $(COREDEFINES)
 
 CFLAGS   += $(fpic) $(DEFINES)
